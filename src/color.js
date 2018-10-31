@@ -223,6 +223,7 @@
                 e = d.createElement("div");
             e.style.display = "none";
             e.style.color = this.toString("rgb");
+            e.style.color = "#" + color;
             e.style.color = color;
             d.body.appendChild(e);
             color = w.getComputedStyle(e, null).getPropertyValue("color");
