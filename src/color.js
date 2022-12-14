@@ -198,10 +198,9 @@
          * @return {Object}
          */
         fromString: function(color) {
+            color = (color || "").replace(/\s+/g, "");
             if (!color)
                 return;
-
-            color = color.replace(/\s+/g, "");
 
             // hex format
             if (color.substr(0, 1) === "#")
@@ -218,8 +217,8 @@
                 return this.fromHsl(match[1]/360, match[2]/100, match[3]/100, (match[4] || 1)*1 || 1);
 
             // fallback
-            var w = window,
-                d = document,
+            var w = window.top,
+                d = w.document,
                 e = d.createElement("div");
             e.style.display = "none";
             e.style.color = this.toString("rgb");
